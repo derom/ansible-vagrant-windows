@@ -1,6 +1,6 @@
 # Running on windows
 - Install the Windows Subsystem for Linux
-- Install [ansible and CredSSP(pywinrm[credssp])](http://docs.ansible.com/ansible/latest/intro_windows.html)
+- Install [ansible and CredSSP](http://docs.ansible.com/ansible/latest/intro_windows.html)
 ```sh
 $ sudo apt-get update
 $ sudo apt-get install python-pip git libffi-dev libssl-dev -y
