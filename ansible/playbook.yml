@@ -1,0 +1,8 @@
+- hosts: anvm
+  gather_facts: yes
+
+  #vars_files:
+  #  - vars/main.yml
+
+  roles:
+    - envbase

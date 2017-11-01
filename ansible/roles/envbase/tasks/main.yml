@@ -1,0 +1,34 @@
+#another way is win_hotfix_module
+- name: Install KB2919355
+  win_chocolatey:
+    name: kb2919355
+    state: present
+  become: true
+  become_method: runas
+  register: KB2919355_install
+
+- win_reboot:
+  when: KB2919355_install.changed
+
+- name: Install MsSqlServer2014Express
+  win_chocolatey:
+    name: MsSqlServer2014Express
+    #install_args: '-o "/INSTANCEID={{sql_instance}} /INSTANCENAME={{sql_instance}}"'
+    state: present
+
+- name: Install IIS Web-Server with sub features and management tools
+  win_feature:
+    name: Web-Server
+    state: present
+    #restart: True
+    #include_sub_features: True
+    include_management_tools: True
+  register: IIS_install
+
+- win_reboot:
+  when: IIS_install.reboot_required
+
+- name: Install dotnet4.7
+  win_chocolatey:
+    name: dotnet4.7
+    state: present
