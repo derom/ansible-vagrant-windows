@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = 2
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
+    v.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
   end
 
   config.vm.hostname = "anvm"

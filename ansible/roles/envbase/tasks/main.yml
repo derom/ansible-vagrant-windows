@@ -1,3 +1,8 @@
+- name: Install git
+  win_chocolatey:
+    name: git
+    state: present
+
 #another way is win_hotfix_module
 - name: Install KB2919355
   win_chocolatey:
@@ -10,9 +15,15 @@
 - win_reboot:
   when: KB2919355_install.changed
 
-- name: Install MsSqlServer2014Express
+- name: Install mssqlserver2014express
   win_chocolatey:
-    name: MsSqlServer2014Express
+    name: mssqlserver2014express
+    #install_args: '-o "/INSTANCEID={{sql_instance}} /INSTANCENAME={{sql_instance}}"'
+    state: present
+
+- name: Install heidisql
+  win_chocolatey:
+    name: heidisql
     #install_args: '-o "/INSTANCEID={{sql_instance}} /INSTANCENAME={{sql_instance}}"'
     state: present
 
