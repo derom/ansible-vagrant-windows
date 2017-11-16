@@ -13,4 +13,11 @@ $ wget https://releases.hashicorp.com/vagrant/2.0.0/vagrant_2.0.0_x86_64.deb
 $ sudo dpkg -i vagrant_2.0.0_x86_64.deb
 $ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 ``` 
-- Add export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1" to ~/.bashrc
+- Add to ~/.bashrc
+```sh
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+```
+- Then start the vm
+```sh
+vagrant up --provision
+```
