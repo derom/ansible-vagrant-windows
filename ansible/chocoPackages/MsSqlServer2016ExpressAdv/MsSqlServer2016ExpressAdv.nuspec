@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MsSqlServer2016ExpressAdv</id>
+    <version>13.0.4001.0</version>
+    <title>SQL Server 2016 Express Advanced SP1</title>
+    <authors>Microsoft</authors>
+    <owners>derom</owners>
+    <projectUrl>https://www.microsoft.com/en-us/download/details.aspx?id=54284</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+      This package installs SQL Server 2016 Express Advanced SP1.
+    </description>
+    <summary>Installs SQL Server 2016 Express Advanced SP1</summary>
+    <copyright />
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="KB2919355" version="1.0.20160915" />
+    </dependencies>
+    <tags>mssql sql server 2016 express advanced</tags>
+  </metadata>
+  <files>
+    <file src="tools\**\*" target="tools" />
+  </files>
+</package>

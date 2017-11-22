@@ -1,3 +1,9 @@
+- name: Copy chocoPackages
+  win_copy:
+    src: chocoPackages
+    dest: C:\temp
+    #remote_src: True
+
 - name: Install git
   win_chocolatey:
     name: git
@@ -15,31 +21,33 @@
 - win_reboot:
   when: KB2919355_install.changed
 
-- name: Install mssqlserver2014express
+- name: Install dotnet4.7
   win_chocolatey:
-    name: mssqlserver2014express
-    #install_args: '-o "/INSTANCEID={{sql_instance}} /INSTANCENAME={{sql_instance}}"'
+    name: dotnet4.7
     state: present
+
+- name: Install mssqlserver2016expressadv
+  win_chocolatey:
+    name: mssqlserver2016expressadv
+    source: 'C:\temp\chocoPackages\.artifacts'
+    state: present
+  register: sqlserver_install
+
+- win_reboot:
+  when: sqlserver_install.changed
 
 - name: Install heidisql
   win_chocolatey:
     name: heidisql
-    #install_args: '-o "/INSTANCEID={{sql_instance}} /INSTANCENAME={{sql_instance}}"'
     state: present
 
-- name: Install IIS Web-Server with sub features and management tools
+- name: Install IIS Web-Server
   win_feature:
     name: Web-Server
     state: present
-    #restart: True
     #include_sub_features: True
     include_management_tools: True
   register: IIS_install
 
 - win_reboot:
   when: IIS_install.reboot_required
-
-- name: Install dotnet4.7
-  win_chocolatey:
-    name: dotnet4.7
-    state: present

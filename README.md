@@ -17,7 +17,8 @@ $ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 ```sh
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 ```
+- Add path to vagrant.exe to windows PATH or virtual box
 - Then start the vm
 ```sh
-vagrant up --provision
+$ vagrant up
 ```

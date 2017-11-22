@@ -32,6 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "ansible/playbook.yml"
     ansible.inventory_path = "ansible/inventory/local"
     ansible.compatibility_mode = "2.0"
+    ansible.verbose = "-vvv"
   end
 
 end
