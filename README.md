@@ -17,7 +17,7 @@ $ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 ```sh
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 ```
-- Add path to vagrant.exe and vboxmanage.exe to windows PATH 
+- Add path to vboxmanage.exe to windows PATH 
 - Then start the vm
 ```sh
 $ vagrant up
